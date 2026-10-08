@@ -1,0 +1,31 @@
+{
+  "baseline": {
+    "total_bytes": 7405568,
+    "postgres_bytes": 7405568,
+    "mongo_bytes": 0,
+    "load_seconds": 0.5790615000296384,
+    "query_seconds": 1.5864394579548389,
+    "cpu_seconds": 0.36561900000000014,
+    "memory_bytes": 85479424
+  },
+  "hybrid": {
+    "total_bytes": 1597440,
+    "postgres_bytes": 221184,
+    "mongo_bytes": 1376256,
+    "load_seconds": 0.09707033389713615,
+    "query_seconds": 2.1219966660719365,
+    "cpu_seconds": 0.3805100000000001,
+    "memory_bytes": 191037440
+  },
+  "measured_at": "2026-10-01T16:06:36.280842+00:00",
+  "event_count": 2076,
+  "low_priority_count": 2033,
+  "high_priority_count": 43,
+  "sample_sha256": "65881f3c58ecee1216888e7222a94506741c6f813c7bc10f710a9c73bf719ee9",
+  "versions": {
+    "postgres": "postgres (PostgreSQL) 17.11 (Debian 17.11-1.pgdg12+2)",
+    "mongo": "8.0.32"
+  },
+  "methodology": "Single local trial using isolated PostgreSQL 17/pgvector and MongoDB 8 containers, identical payloads and comparable lookup/filter indexes. Baseline adds one 384-float lexical vector per event; hybrid stores no per-event vectors. No vector ANN index. Load includes client vector generation; queries are 5 \u00d7 up to 500 identical ID lookups. Sizes measured after checkpoint; CPU uses database cgroup usage deltas during load and lookups. Memory is the post-workload sum of database cgroup memory.current, including cache, not configured RAM or a peak.",
+  "limitations": "Event-only allocation excludes shared knowledge, routing receipts, incidents, Redis, WAL/journals, backups, and replication. Hybrid includes both database processes in CPU/memory. Baseline supports per-event vectors whereas hybrid uses shared knowledge retrieval: capabilities differ. One trial, warm lookups, local Docker host, small sample, and measurement overhead limit generalisation. These measurements cannot establish production CPU/RAM or total infrastructure cost savings."
+}

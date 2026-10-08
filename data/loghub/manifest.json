@@ -1,0 +1,235 @@
+{
+  "repository": "https://github.com/logpai/loghub",
+  "revision": "dd61d0952749ee7963bde24220d1be5ede023033",
+  "downloaded_at": "2026-10-01T04:48:06.529177+00:00",
+  "collection": "Official 2,000-line structured samples, not the full Loghub archives",
+  "label_provenance": "Weak labels: source Level mapped to project P1\u2013P5. Not human-verified incident severity or Loghub ground-truth P1\u2013P5 labels.",
+  "mapping": {
+    "TRACE": "P1",
+    "VERBOSE": "P1",
+    "DEBUG": "P1",
+    "V": "P1",
+    "D": "P1",
+    "INFO": "P2",
+    "INFORMATION": "P2",
+    "NOTICE": "P2",
+    "I": "P2",
+    "WARN": "P3",
+    "WARNING": "P3",
+    "W": "P3",
+    "ERROR": "P4",
+    "ERR": "P4",
+    "E": "P4",
+    "FATAL": "P5",
+    "CRITICAL": "P5",
+    "CRIT": "P5",
+    "EMERG": "P5",
+    "EMERGENCY": "P5",
+    "ALERT": "P5",
+    "F": "P5"
+  },
+  "datasets": [
+    {
+      "dataset": "Android",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Android/Android_2k.log_structured.csv",
+      "sha256": "80d58d6c79249c9f4891fbe0c2eaeaade30f933c69b7d030af190a10d73d96e5",
+      "downloaded_records": 2000,
+      "eligible_records": 2000,
+      "source_levels": {
+        "D": 650,
+        "V": 257,
+        "I": 920,
+        "W": 170,
+        "E": 3
+      }
+    },
+    {
+      "dataset": "Apache",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Apache/Apache_2k.log_structured.csv",
+      "sha256": "54331d12eedf513f2127f4d89f0284c8b15fddfa5471103abf9db2c73d737778",
+      "downloaded_records": 2000,
+      "eligible_records": 2000,
+      "source_levels": {
+        "NOTICE": 1405,
+        "ERROR": 595
+      }
+    },
+    {
+      "dataset": "BGL",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/BGL/BGL_2k.log_structured.csv",
+      "sha256": "3fe74103c0b02a28514534e2a47257a3f770135ca61afd425bbd3b9d6a31fe26",
+      "downloaded_records": 2000,
+      "eligible_records": 1993,
+      "source_levels": {
+        "INFO": 1597,
+        "FATAL": 347,
+        "WARNING": 8,
+        "SEVERE": 7,
+        "ERROR": 41
+      }
+    },
+    {
+      "dataset": "HDFS",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/HDFS/HDFS_2k.log_structured.csv",
+      "sha256": "729df59774e3dde934044028546d2a55d5e3d4370b9d12fcebbe4c087b2bf7b4",
+      "downloaded_records": 2000,
+      "eligible_records": 2000,
+      "source_levels": {
+        "INFO": 1920,
+        "WARN": 80
+      }
+    },
+    {
+      "dataset": "HPC",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/HPC/HPC_2k.log_structured.csv",
+      "sha256": "0787df9cfab7e9495669548315ea8a9a51b02029c0dcfa28944707ad755a8c86",
+      "downloaded_records": 2000,
+      "eligible_records": 0,
+      "source_levels": {
+        "(missing)": 2000
+      }
+    },
+    {
+      "dataset": "Hadoop",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Hadoop/Hadoop_2k.log_structured.csv",
+      "sha256": "e88e5bf99d7f23f482517cc79290ad75b90d914af5d6114176e8bbf0f8ae0fad",
+      "downloaded_records": 2000,
+      "eligible_records": 2000,
+      "source_levels": {
+        "INFO": 1040,
+        "ERROR": 150,
+        "WARN": 808,
+        "FATAL": 2
+      }
+    },
+    {
+      "dataset": "HealthApp",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/HealthApp/HealthApp_2k.log_structured.csv",
+      "sha256": "11831c70cc8851cb74486153149ae3136453fccca708fcb6826d8dcb0edbc6cb",
+      "downloaded_records": 2000,
+      "eligible_records": 0,
+      "source_levels": {
+        "(missing)": 2000
+      }
+    },
+    {
+      "dataset": "Linux",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Linux/Linux_2k.log_structured.csv",
+      "sha256": "7c86d7b0ecb961a25f00d9475a154df97613b9974f31ce142a146caa2017c71e",
+      "downloaded_records": 2000,
+      "eligible_records": 0,
+      "source_levels": {
+        "COMBO": 2000
+      }
+    },
+    {
+      "dataset": "Mac",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Mac/Mac_2k.log_structured.csv",
+      "sha256": "c8d5d74e0dcd923675ee944ea592abaf0eae91ef492435330694ce5008267c8d",
+      "downloaded_records": 2000,
+      "eligible_records": 0,
+      "source_levels": {
+        "(missing)": 2000
+      }
+    },
+    {
+      "dataset": "OpenSSH",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/OpenSSH/OpenSSH_2k.log_structured.csv",
+      "sha256": "c0996a11545f4b94b435993760afa441a9e373f7bfc9e787afdb8e62f65acb4f",
+      "downloaded_records": 2000,
+      "eligible_records": 0,
+      "source_levels": {
+        "(missing)": 2000
+      }
+    },
+    {
+      "dataset": "OpenStack",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/OpenStack/OpenStack_2k.log_structured.csv",
+      "sha256": "ecc88e7909777181824260e9bdacd1469bd24d55131d6fc14e9c8c17edc49ff0",
+      "downloaded_records": 2000,
+      "eligible_records": 2000,
+      "source_levels": {
+        "INFO": 1969,
+        "WARNING": 31
+      }
+    },
+    {
+      "dataset": "Proxifier",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Proxifier/Proxifier_2k.log_structured.csv",
+      "sha256": "5aa88821bb217d82c3a964cbe9fdb0d67f235b0538ac164ef0a87e0ced4f2715",
+      "downloaded_records": 2000,
+      "eligible_records": 0,
+      "source_levels": {
+        "(missing)": 2000
+      }
+    },
+    {
+      "dataset": "Spark",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Spark/Spark_2k.log_structured.csv",
+      "sha256": "d7df75f6839b6bcf98ff020b6b0b6e2ee89d8cc53ee3d08d441bd42fd84a2cb5",
+      "downloaded_records": 2000,
+      "eligible_records": 2000,
+      "source_levels": {
+        "INFO": 2000
+      }
+    },
+    {
+      "dataset": "Thunderbird",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Thunderbird/Thunderbird_2k.log_structured.csv",
+      "sha256": "c62196d8a3449de765501bbf58c2093452e9d1add439053301d29fdad8a06809",
+      "downloaded_records": 2000,
+      "eligible_records": 0,
+      "source_levels": {
+        "(missing)": 2000
+      }
+    },
+    {
+      "dataset": "Windows",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Windows/Windows_2k.log_structured.csv",
+      "sha256": "caa98dd6c1291ba0470d5c171df8514616b35669d724652bd7aa973df0dee881",
+      "downloaded_records": 2000,
+      "eligible_records": 2000,
+      "source_levels": {
+        "INFO": 2000
+      }
+    },
+    {
+      "dataset": "Zookeeper",
+      "url": "https://raw.githubusercontent.com/logpai/loghub/dd61d0952749ee7963bde24220d1be5ede023033/Zookeeper/Zookeeper_2k.log_structured.csv",
+      "sha256": "e4a450c67595828103cfab049d971f54eee778fdded061222ba6581bed2a210a",
+      "downloaded_records": 2000,
+      "eligible_records": 2000,
+      "source_levels": {
+        "INFO": 669,
+        "WARN": 1318,
+        "ERROR": 13
+      }
+    }
+  ],
+  "downloaded_records": 32000,
+  "eligible_records": 17993,
+  "prepared_records": 10319,
+  "conflicting_texts_excluded": 6,
+  "duplicates_or_conflicting_rows_excluded": 7674,
+  "class_counts": {
+    "P1": 199,
+    "P2": 9405,
+    "P3": 509,
+    "P4": 61,
+    "P5": 145
+  },
+  "dataset_counts": {
+    "Android": 437,
+    "Apache": 886,
+    "BGL": 1359,
+    "HDFS": 2000,
+    "Hadoop": 734,
+    "OpenStack": 1548,
+    "Spark": 1699,
+    "Windows": 963,
+    "Zookeeper": 693
+  },
+  "labeled_sha256": "74664a6309a7ede0fedd75bae2ef16affae68cf8cac80aee551b6c2a844daed9",
+  "feature_policy": "Content only. Level, dataset, EventId and EventTemplate are excluded from model input.",
+  "citation": "Zhu et al., Loghub: A Large Collection of System Log Datasets for AI-driven Log Analytics, ISSRE 2023."
+}
