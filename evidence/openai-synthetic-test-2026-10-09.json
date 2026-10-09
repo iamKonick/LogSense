@@ -1,0 +1,26 @@
+{
+  "test_type": "synthetic_only",
+  "elapsed_seconds": 2.85,
+  "model": "gpt-5.4-mini",
+  "response": {
+    "mode": "rag_openai",
+    "answer": "### Observations\n- The current event says the `demo-service` program could not start because of **permission denied** [current_event].\n- The only evidence note says that for a permission-denied start failure, you should inspect the **configured executable path** and **read-only permission metadata**, and confirm the **runtime identity** [1].\n- The note explicitly says **no root cause has been verified** [1].\n\n### Possible causes\n- The executable path may point to a file that the runtime user cannot access or execute [1].\n- The target file or directory may have permissions or metadata that prevent execution [1].\n- The service may be running under an unexpected runtime identity with insufficient access [1].\n\n### Recommended checks\n- Verify the configured executable path for `demo-service` [1].\n- Check file and directory permissions, including any read-only or execution-related metadata on the target program [1].\n- Confirm which user or identity the service runs as, and whether that identity has the intended access [1].\n- Avoid changing permissions until an engineer verifies the intended access policy [1].\n\n### Bottom line\nThis looks like a **permission-related startup failure**, but the evidence does **not** verify the root cause yet [1].",
+    "sources": [
+      {
+        "id": "synthetic-reference",
+        "title": "Synthetic program-start investigation note",
+        "kind": "runbook",
+        "verified": false,
+        "score": 0.9,
+        "source": "synthetic-test-only",
+        "content": "For a permission-denied program start, inspect the configured executable path and read-only permission metadata. Confirm the runtime identity. Do not change permissions until an engineer verifies the intended access policy. No root cause has been verified."
+      }
+    ],
+    "retrieval_method": "lexical_hashing_384",
+    "confidence": null,
+    "confidence_note": "Retrieval similarity is a heuristic, not a probability of correctness.",
+    "event_id": "synthetic-demo",
+    "generated": true,
+    "retrieval_score": 0.9
+  }
+}
