@@ -12,6 +12,12 @@ import {
 import { Badge } from "../components/Shared";
 import EventTable from "../components/EventTable";
 export default function AssistantPage({
+  provider,
+  setProvider,
+  providerModel,
+  setProviderModel,
+  providerKey,
+  setProviderKey,
   context,
   setContext,
   answer,
@@ -35,6 +41,68 @@ export default function AssistantPage({
           </div>
           <span className="subtle-tag">HUMAN REVIEW</span>
         </div>
+        <div className="provider-settings">
+          <label>
+            Answer provider
+            <select
+              aria-label="Answer provider"
+              value={provider}
+              disabled={asking}
+              onChange={(e) => {
+                setProvider(e.target.value);
+                setProviderModel(
+                  e.target.value === "openai" ? "gpt-5.4-mini" : "qwen2.5:3b",
+                );
+                setProviderKey("");
+              }}
+            >
+              <option value="ollama">Ollama · local</option>
+              <option value="openai">OpenAI · cloud</option>
+              <option value="evidence">Retrieved evidence only</option>
+            </select>
+          </label>
+          {provider !== "evidence" && (
+            <label>
+              Model
+              <input
+                aria-label="Model"
+                value={providerModel}
+                disabled={asking}
+                onChange={(e) => setProviderModel(e.target.value)}
+              />
+            </label>
+          )}
+          {provider === "openai" && (
+            <label className="provider-key">
+              OpenAI API key
+              <input
+                aria-label="OpenAI API key"
+                type="password"
+                autoComplete="off"
+                spellCheck={false}
+                value={providerKey}
+                disabled={asking}
+                onChange={(e) => setProviderKey(e.target.value)}
+                placeholder="Enter key, or use server configuration"
+              />
+              <button
+                className="secondary"
+                type="button"
+                onClick={() => setProviderKey("")}
+                disabled={asking || !providerKey}
+              >
+                Clear key
+              </button>
+            </label>
+          )}
+          <p className="hint">
+            {provider === "openai"
+              ? "Your question, event and retrieved passages are sent to OpenAI when you ask. The entered key is held in memory for this session, not saved; reloading or changing provider clears it."
+              : provider === "ollama"
+                ? "Uses the local Ollama service. The selected model must be installed on the server."
+                : "Shows relevant sources without generating an answer."}
+          </p>
+        </div>
         {context && (
           <div className="context">
             <Badge priority={context.prediction.priority} />
@@ -53,7 +121,7 @@ export default function AssistantPage({
               <div className="answer-mode">
                 <Sparkles size={15} />
                 {answer.generated
-                  ? "Local model · retrieval-augmented answer"
+                  ? `${answer.mode === "rag_openai" ? "OpenAI" : "Ollama"} · retrieval-augmented answer`
                   : "Retrieved evidence · generation not used"}
               </div>
               {answer.notice && <p className="hint">{answer.notice}</p>}
@@ -100,7 +168,11 @@ export default function AssistantPage({
           />
           <button
             className="primary"
-            disabled={asking || question.trim().length < 3}
+            disabled={
+              asking ||
+              question.trim().length < 3 ||
+              (provider !== "evidence" && !providerModel.trim())
+            }
             aria-label="Ask LogSense"
           >
             {asking ? (

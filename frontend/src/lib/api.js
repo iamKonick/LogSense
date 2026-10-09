@@ -1,6 +1,7 @@
 let apiKey = sessionStorage.getItem("logsense-key") || "";
 export async function api(path, options = {}) {
   const headers = {
+    ...options.headers,
     "X-API-Key": apiKey,
     ...(options.body instanceof FormData
       ? {}

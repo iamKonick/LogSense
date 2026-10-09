@@ -1,3 +1,4 @@
+from dataclasses import replace
 import csv
 import io
 import logging
@@ -231,9 +232,17 @@ def add_knowledge(body: KnowledgeInput, request: Request):
 
 
 @app.post("/api/assistant")
-def assistant(body: Question, request: Request):
+def assistant(body: Question, request: Request, x_openai_key: str = Header(default="")):
+    active = request.app.state.assistant
+    if body.provider is not None:
+        overrides = {"openai_model": "", "ollama_model": ""}
+        if body.provider == "openai":
+            overrides.update(openai_model=body.model or "gpt-5.4-mini", openai_api_key=x_openai_key.strip() or settings.openai_api_key)
+        elif body.provider == "ollama":
+            overrides["ollama_model"] = body.model or settings.ollama_model or "qwen2.5:3b"
+        active = Assistant(request.app.state.repo, replace(settings, **overrides))
     try:
-        return request.app.state.assistant.answer(body.question, body.event_id)
+        return active.answer(body.question, body.event_id)
     except KeyError:
         raise HTTPException(404, "Event not found")
 

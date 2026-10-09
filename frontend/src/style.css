@@ -2158,3 +2158,31 @@ textarea {
     display: none;
   }
 }
+
+.provider-settings {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.provider-settings label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 180px;
+  min-width: 0;
+}
+.provider-settings input,
+.provider-settings select {
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+}
+.provider-settings .hint {
+  flex-basis: 100%;
+  margin: 0;
+}
+.provider-key button {
+  align-self: flex-start;
+}

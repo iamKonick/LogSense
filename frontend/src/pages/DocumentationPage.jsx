@@ -26,7 +26,7 @@ const sections = [
   ],
   [
     "AI assistant & evidence",
-    "Ask a specific question with service and error text, or start from an event. Retrieval uses lexical vector similarity: matching words and phrases, not semantic embeddings. It can miss differently worded issues. Read citations and verify applicability before applying a fix. Without a configured local language model, the assistant returns evidence-only results. A new reference is immediately searchable but is not guaranteed to appear for every similar issue.",
+    "Ask a specific question with service and error text, or start from an event. Retrieval uses lexical vector similarity: matching words and phrases, not semantic embeddings. It can miss differently worded issues. Read citations and verify applicability before applying a fix. Choose Ollama, OpenAI, or retrieved evidence only in the assistant. Set a model name; Ollama requires an installed model. For OpenAI, enter a key in the masked field or use the server configuration. The entered key stays in page memory and is cleared by reload or provider change. Questions, event context and retrieved passages are sent to OpenAI only when that provider is selected. Provider failures fall back to evidence. A new reference is immediately searchable but is not guaranteed to appear for every similar issue.",
   ],
   [
     "Model evaluation",

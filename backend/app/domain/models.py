@@ -62,6 +62,8 @@ class Prediction(BaseModel):
 
 
 class Question(BaseModel):
+    provider: Literal["openai", "ollama", "evidence"] | None = None
+    model: str | None = Field(default=None, min_length=1, max_length=120, pattern=r"^[a-zA-Z0-9_.:/-]+$")
     question: str = Field(min_length=3, max_length=8000)
     event_id: str | None = Field(default=None, max_length=64)
 

@@ -73,6 +73,9 @@ export default function App() {
     [selected, setSelected] = useState(null),
     [incident, setIncident] = useState(null),
     [addKnowledge, setAddKnowledge] = useState(false),
+    [provider, setProvider] = useState("ollama"),
+    [providerModel, setProviderModel] = useState("qwen2.5:3b"),
+    [providerKey, setProviderKey] = useState(""),
     [question, setQuestion] = useState(""),
     [context, setContext] = useState(null),
     [answer, setAnswer] = useState(null),
@@ -138,7 +141,16 @@ export default function App() {
       setAnswer(
         await api("/assistant", {
           method: "POST",
-          body: JSON.stringify({ question, event_id: context?.id }),
+          headers:
+            provider === "openai" && providerKey
+              ? { "X-OpenAI-Key": providerKey }
+              : {},
+          body: JSON.stringify({
+            question,
+            event_id: context?.id,
+            provider,
+            model: provider === "evidence" ? undefined : providerModel,
+          }),
         }),
       );
     } catch (e) {
@@ -342,6 +354,12 @@ export default function App() {
           )}
           {page === "AI assistant" && (
             <AssistantPage
+              provider={provider}
+              setProvider={setProvider}
+              providerModel={providerModel}
+              setProviderModel={setProviderModel}
+              providerKey={providerKey}
+              setProviderKey={setProviderKey}
               context={context}
               setContext={setContext}
               answer={answer}
